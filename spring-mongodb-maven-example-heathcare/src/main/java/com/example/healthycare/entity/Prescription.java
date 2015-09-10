@@ -1,5 +1,6 @@
 package com.example.healthycare.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,18 +18,16 @@ public class Prescription {
 	@Id
 	private String id;
 	
-	private List<Doctor> doctors;
+	private Doctor doctor;
 	
-	private String prescriptionId;
+	private Patient patient;
 	
 	private String description;
 	
 	private Date createDate;
 	
-	private List<Drug>drugs;
+	private List<Drug>drugs = new ArrayList<Drug>();
 	
-	@DBRef
-	private Patient patient;
 
 	public String getId() {
 		return id;
@@ -38,12 +37,12 @@ public class Prescription {
 		this.id = id;
 	}
 
-	public List<Doctor> getDoctors() {
-		return doctors;
+	public Doctor getDoctor() {
+		return doctor;
 	}
 
-	public void setDoctors(List<Doctor> doctors) {
-		this.doctors = doctors;
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
 
 	public Patient getPatient() {
@@ -52,14 +51,6 @@ public class Prescription {
 
 	public void setPatient(Patient patient) {
 		this.patient = patient;
-	}
-
-	public String getPrescriptionId() {
-		return prescriptionId;
-	}
-
-	public void setPrescriptionId(String prescriptionId) {
-		this.prescriptionId = prescriptionId;
 	}
 
 	public String getDescription() {

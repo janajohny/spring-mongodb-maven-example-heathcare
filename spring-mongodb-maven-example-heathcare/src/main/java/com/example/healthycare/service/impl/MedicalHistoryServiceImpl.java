@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.healthycare.dao.MedicalHistoryDao;
-import com.example.healthycare.dao.PatientDao;
+import com.example.healthycare.dao.PatientDaoImpl;
 import com.example.healthycare.entity.MedicalHistory;
 import com.example.healthycare.entity.Patient;
 import com.example.healthycare.service.MedicalHistoryService;

@@ -20,11 +20,9 @@ public class PatientServiceImpl implements PatientService{
 	@Autowired
 	private PatientDao patientRepository;
 	
-	
-	
 	@Override
 	public List<Patient> findAll() {
-		return patientRepository.findAll();
+		return patientRepository.findAll(Patient.class);
 	}
 
 	@Override

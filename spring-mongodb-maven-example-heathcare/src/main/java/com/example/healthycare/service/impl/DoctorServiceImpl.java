@@ -17,16 +17,34 @@ import com.example.healthycare.service.DoctorService;
 public class DoctorServiceImpl implements DoctorService{
 	
 	@Autowired
-	private DoctorDao doctorRepository;
+	private DoctorDao doctorDao;
 	
 	@Override
 	public List<Doctor> findAll() {
-		return doctorRepository.findAll();
+		return doctorDao.findAll(Doctor.class);
 	}
 
 	@Override
 	public void insert(Doctor doctor) {
-		doctorRepository.insert(doctor);
+		doctorDao.insert(doctor);
 	}
-	
+
+	@Override
+	public Doctor findById(String id) {
+		return doctorDao.findById(id);
+	}
+
+	@Override
+	public void update(Doctor doctor) {
+		doctorDao.update(doctor);
+	}
+
+	@Override
+	public void delete(String id) {
+		doctorDao.delete(id);
+	}
+
+	public Doctor findByEmployeeId(String employeeId) {
+		return doctorDao.findByEmployeeId(employeeId);
+	}
 }

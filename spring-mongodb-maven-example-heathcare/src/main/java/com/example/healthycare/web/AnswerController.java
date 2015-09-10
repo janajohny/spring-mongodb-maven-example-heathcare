@@ -2,6 +2,8 @@ package com.example.healthycare.web;
 
 import java.util.Iterator;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -51,7 +53,7 @@ public class AnswerController {
 	}
 	
 	@RequestMapping(value="update/{patientId}", method = RequestMethod.POST)
-	public String updateAnswer(@PathVariable(value="patientId") String patientId,@ModelAttribute(value = "answer") Answer answer){
+	public String updateAnswer(@PathVariable(value="patientId") String patientId,@ModelAttribute(value = "answer") Answer answer, HttpServletRequest request){
 		Patient patient = patientService.findByPatientId(patientId);
 		for (Iterator iterator = patient.getMedicalHistory().getAnswers().iterator(); iterator.hasNext();) {
 			Answer ans = (Answer) iterator.next();
@@ -60,6 +62,6 @@ public class AnswerController {
 				patientService.update(patient);
 			}
 		}
-		return "redirect:/index";
+		return "redirect:/medicalhistory/update/"+patientId;
 	}
 }

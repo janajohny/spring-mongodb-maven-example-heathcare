@@ -9,8 +9,10 @@
     
     <mongo:mongo host="localhost" port="27017" id="mongo" />
     <mongo:db-factory dbname="mydb" mongo-ref="mongo" id="mongoDbFactory" />
+    
     <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
         <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
     </bean>
+    
     <mongo:repositories base-package="com.example.healthycare.dao" />
 </beans>

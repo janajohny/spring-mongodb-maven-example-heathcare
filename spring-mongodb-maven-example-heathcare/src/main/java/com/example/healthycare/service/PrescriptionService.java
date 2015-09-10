@@ -13,4 +13,11 @@ public interface PrescriptionService {
 	
 	List<Prescription>findAll();
 
+	void insert(Prescription prescription);
+	
+	void delete(String id);
+	
+	Prescription findById(String id);
+	
+	void update(Prescription prescription);
 }

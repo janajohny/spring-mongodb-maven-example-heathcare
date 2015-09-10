@@ -11,9 +11,13 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.example.healthycare.entity.Question;
-
+/**
+ * 
+ * @author vominhtung
+ *
+ */
 @Repository
-public class QuestionDao {
+public class QuestionDao{
 	
 	@Autowired
 	private ApplicationContext appContext;

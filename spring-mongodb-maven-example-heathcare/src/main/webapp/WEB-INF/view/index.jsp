@@ -9,8 +9,10 @@
 	</head> 
 	<body>
 	<br/>
-	<p><a href="${pageContext.servletContext.contextPath}/patient/add">Add new</a></p>
+	<p><a href="${pageContext.servletContext.contextPath}/patient/add">Add new Patient</a></p>
 	<p><a href="${pageContext.servletContext.contextPath}/doctor/">Manage Doctor</a></p>
+	<p><a href="${pageContext.servletContext.contextPath}/prescription/">Manage Prescription</a></p>
+	<p><a href="${pageContext.servletContext.contextPath}/drug/">Drug</a></p>
     <br/>
     <table style="width:100%" border="1">
             <tr>

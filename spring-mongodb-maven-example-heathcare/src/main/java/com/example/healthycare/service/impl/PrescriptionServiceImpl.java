@@ -21,7 +21,27 @@ public class PrescriptionServiceImpl implements PrescriptionService{
 	
 	@Override
 	public List<Prescription> findAll() {
-		return prescriptionDao.findAll();
+		return prescriptionDao.findAll(Prescription.class);
+	}
+
+	@Override
+	public void insert(Prescription prescription) {
+		prescriptionDao.insert(prescription);
+	}
+
+	@Override
+	public void delete(String id) {
+		prescriptionDao.delete(id);
+	}
+
+	@Override
+	public Prescription findById(String id) {
+		return prescriptionDao.findById(id);
+	}
+
+	public void update(Prescription prescription) {
+		prescriptionDao.update(prescription);
+		
 	}
 
 }

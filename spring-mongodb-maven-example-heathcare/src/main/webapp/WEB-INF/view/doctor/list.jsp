@@ -24,8 +24,8 @@
                 <td>${doctor.firstName}</td>
                 <td>${doctor.lastName}</td>
                 <td>
-                    <a href="${pageContext.servletContext.contextPath}/medicalhistory/update/">edit</a>
-                    <a href="${pageContext.servletContext.contextPath}/patient/delete/" >Delete</a>
+                    <a href="${pageContext.servletContext.contextPath}/doctor/edit/${doctor.id}">edit</a>
+                    <a href="${pageContext.servletContext.contextPath}/doctor/delete/${doctor.id}" >Delete</a>
                 </td>
             </tr>
         </c:forEach>
