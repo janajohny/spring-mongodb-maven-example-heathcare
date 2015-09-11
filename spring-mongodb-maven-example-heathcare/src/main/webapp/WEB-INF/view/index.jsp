@@ -29,6 +29,7 @@
                 <td>${patient.lastName}</td>
                 <td>
                     <a href="${pageContext.servletContext.contextPath}/medicalhistory/update/${patient.patientId}">Medical history</a>
+                    <a href="${pageContext.servletContext.contextPath}/patient/edit/${patient.patientId}">Edit Patient</a>
                     <a href="${pageContext.servletContext.contextPath}/patient/delete/${patient.patientId}" >Delete</a>
                 </td>
             </tr>

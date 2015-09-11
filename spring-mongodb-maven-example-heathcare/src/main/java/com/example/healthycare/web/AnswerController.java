@@ -61,7 +61,7 @@ public class AnswerController {
 			Answer ans = (Answer) iterator.next();
 			if(ans.getId().equals(answer.getId())){
 				ans.setAnswer(answer.getAnswer());
-				patientService.update(patient);
+				patientService.updateMedicalHistory(patient);
 			}
 		}
 		return "redirect:/medicalhistory/update/"+patientId;
@@ -83,7 +83,7 @@ public class AnswerController {
 		if(answers!=null){
 			answers.add(answer);
 		}
-		patientService.update(patient);
+		patientService.updateMedicalHistory(patient);
 		return "redirect:/medicalhistory/update/"+patientId;
 	}
 }

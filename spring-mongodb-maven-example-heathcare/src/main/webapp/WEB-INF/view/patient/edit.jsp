@@ -10,6 +10,7 @@
 	<body>
 	<table>
 	<form:form method="post" commandName="patient" action="${pageContext.servletContext.contextPath}/patient/edit">
+		<form:input path="id"/>
 		<tr>
 			<td>Patient Id </td>
 			<td><form:input path="patientId"/></td>

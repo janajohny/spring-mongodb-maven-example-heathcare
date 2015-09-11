@@ -36,13 +36,18 @@ public class PatientServiceImpl implements PatientService{
 	}
 	
 	@Override
-	public void update(Patient patient) {
-		patientRepository.update(patient);
+	public void updateMedicalHistory(Patient patient) {
+		patientRepository.updateMedicalHistory(patient);
 	}
 
 	@Override
 	public void delete(String patientId) {
 		patientRepository.delete(patientId);
+	}
+	
+	@Override
+	public void update(Patient patient) {
+		patientRepository.update(patient);
 	}
 
 }

@@ -25,7 +25,7 @@
 				<td>${prescription.doctor.employeeId}</td>
 				<td>
 					<a href="${pageContext.servletContext.contextPath}/prescription/edit/${prescription.id}">edit</a>
-					<a href="${pageContext.servletContext.contextPath}/drug/edit/${prescription.id}">drug</a>
+					<!-- <a href="${pageContext.servletContext.contextPath}/drug/edit/${prescription.id}">drug</a>-->
 					<a href="${pageContext.servletContext.contextPath}/prescription/delete/${prescription.id}">Delete</a>
 				</td>
 			</tr>

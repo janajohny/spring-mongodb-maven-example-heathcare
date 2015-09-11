@@ -76,7 +76,7 @@ public class MedicalHistoryController {
 					questionAnswerMap.add(updateHistoryDTO);
 				}
 				patient.setMedicalHistory(medicalHistory);
-				patientService.update(patient);
+				patientService.updateMedicalHistory(patient);
 				mm.put("medicalHistory",medicalHistory);
 				mm.put("questionAnswerMap",questionAnswerMap);
 				mm.put("patientId", patientId);

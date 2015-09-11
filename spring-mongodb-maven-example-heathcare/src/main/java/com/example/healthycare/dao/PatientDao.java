@@ -6,8 +6,10 @@ public interface PatientDao extends BaseDao<Patient>{
 
 	public abstract Patient findByPatientId(String patientId);
 
-	public abstract void update(Patient patient);
+	public abstract void updateMedicalHistory(Patient patient);
 
 	public abstract void delete(String patientId);
+	
+	public abstract void update(Patient patient);
 
 }

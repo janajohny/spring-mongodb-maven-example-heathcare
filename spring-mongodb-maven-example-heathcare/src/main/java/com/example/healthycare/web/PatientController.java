@@ -59,7 +59,7 @@ public class PatientController {
 		return "patient/edit";
 	}
 	
-	@RequestMapping(value="edit", method = RequestMethod.POST)
+	@RequestMapping(value="/edit", method = RequestMethod.POST)
 	public String editPatient(@ModelAttribute(value = "patient")Patient patient, ModelMap mm){
 		patientService.update(patient);
 		mm.put("patient", patient);

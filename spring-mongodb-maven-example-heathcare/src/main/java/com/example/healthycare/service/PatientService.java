@@ -17,7 +17,9 @@ public interface PatientService {
 	
 	void insert(Patient patient);
 	
-	void update(Patient patient);
+	void updateMedicalHistory(Patient patient);
 	
 	void delete(String patientId);
+	
+	void update(Patient patient);
 }

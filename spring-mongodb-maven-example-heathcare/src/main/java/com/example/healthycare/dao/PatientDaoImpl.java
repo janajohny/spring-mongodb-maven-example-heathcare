@@ -32,7 +32,7 @@ public class PatientDaoImpl extends BaseDaoImpl<Patient> implements PatientDao {
 	/* (non-Javadoc)
 	 * @see com.example.healthycare.dao.PatientDao#update(com.example.healthycare.entity.Patient)
 	 */
-	public void update(Patient patient){
+	public void updateMedicalHistory(Patient patient){
 		MongoOperations mongoOperation = (MongoOperations)appContext.getBean("mongoTemplate");
 		Query query = new Query(Criteria.where("patientId").is(patient.getPatientId()));
 		Update update = new Update();
@@ -52,6 +52,19 @@ public class PatientDaoImpl extends BaseDaoImpl<Patient> implements PatientDao {
 		MongoOperations mongoOperation = (MongoOperations)appContext.getBean("mongoTemplate");
 		Query query = new Query(Criteria.where("patientId").is(patientId));
 		mongoOperation.remove(query, Patient.class);
+	}
+
+	public void update(Patient patient) {
+		MongoOperations mongoOperation = (MongoOperations)appContext.getBean("mongoTemplate");
+		Query query = new Query(Criteria.where("id").is(patient.getId()));
+		Update update = new Update();
+		update.set("patientId", patient.getPatientId());
+		update.set("firstName", patient.getFirstName());
+		update.set("lastName", patient.getLastName());
+		update.set("age", patient.getAge());
+		update.set("birthDate", patient.getBirthDate());
+		mongoOperation.updateFirst(query, update, Patient.class);
+		
 	}
 
 }
