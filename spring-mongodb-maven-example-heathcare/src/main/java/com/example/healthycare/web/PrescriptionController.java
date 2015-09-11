@@ -52,10 +52,6 @@ public class PrescriptionController {
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST)
 	public String addPrescription(@ModelAttribute(value = "prescription")Prescription prescription){
-		Doctor doctor = doctorService.findByEmployeeId(prescription.getDoctor().getEmployeeId());
-		Patient patient = patientService.findByPatientId(prescription.getPatient().getPatientId());
-		prescription.setDoctor(doctor);
-		prescription.setPatient(patient);
 		prescriptionService.insert(prescription);
 		return "redirect:/prescription";
 	}

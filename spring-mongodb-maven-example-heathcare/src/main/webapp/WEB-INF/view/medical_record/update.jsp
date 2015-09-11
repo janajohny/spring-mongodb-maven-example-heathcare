@@ -17,17 +17,12 @@
           <td>Answer</td>
           <td>Option</td>
     </tr>
-	<c:forEach items="${questionAnswerMap}" var="qa">
+	<c:forEach items="${medicalHistory.answers}" var="answer">
             <tr>
-                <td>${qa.question.question}</td>
-                <td>${qa.answer.answer}</td>
+                <td>${answer.question.question}</td>
+                <td>${answer.answer}</td>
                 <td>
-                    <c:if test="${qa.answer.id != null }">
-                        <a href="${pageContext.servletContext.contextPath}/answer/update/${patientId}/${qa.answer.id}">Update Answer</a>
-                    </c:if>
-                    <c:if test="${qa.answer.id == null }">
-                        <a href="${pageContext.servletContext.contextPath}/answer/create/${patientId}/${qa.question.id}">Answer</a>
-                    </c:if>
+                    <a href="${pageContext.servletContext.contextPath}/answer/update/${patientId}/${answer.id}">Update Answer</a>
                 </td>
             </tr>
     </c:forEach>

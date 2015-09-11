@@ -1,5 +1,7 @@
 package com.example.healthycare.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,7 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.healthycare.entity.Answer;
+import com.example.healthycare.entity.MedicalHistory;
 import com.example.healthycare.entity.Patient;
+import com.example.healthycare.entity.Question;
 import com.example.healthycare.service.AnswerService;
 import com.example.healthycare.service.PatientService;
 import com.example.healthycare.service.QuestionService;
@@ -48,6 +53,15 @@ public class PatientController {
 	@RequestMapping(value="add", method = RequestMethod.POST)
 	@Transactional
 	public String updatePatient(@ModelAttribute(value = "p")Patient patient){
+		MedicalHistory medicalHistory = new MedicalHistory();
+		List<Question>questions = questionService.findAll();
+		for (Question question : questions) {
+			Answer answer = new Answer();
+			answer.setQuestion(question);
+			answer.setAnswer(null);
+			medicalHistory.getAnswers().add(answer);
+		}
+		patient.setMedicalHistory(medicalHistory);
 		patientService.insert(patient);
 		return "redirect:/index";
 	}

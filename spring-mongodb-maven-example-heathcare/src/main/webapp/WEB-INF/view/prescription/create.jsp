@@ -11,11 +11,11 @@
 	<form:form method="post" commandName="prescription" action="${pageContext.servletContext.contextPath}/prescription/add">
 		<tr>
       		<td>Patient:</td>
-      		<td><form:select path="patient.patientId" items="${patientList}" itemLabel="patientId" itemValue="patientId" /></td>
+      		<td><form:select path="patient.id" items="${patientList}" itemLabel="patientId" itemValue="id" /></td>
   		</tr>
   		<tr>
       		<td>Doctor:</td>
-      		<td><form:select path="doctor.employeeId" items="${doctorList}" itemLabel="employeeId" itemValue="employeeId"/></td>
+      		<td><form:select path="doctor.id" items="${doctorList}" itemLabel="employeeId" itemValue="id"/></td>
   		</tr>
   		<tr>
 			<td>Description</td>

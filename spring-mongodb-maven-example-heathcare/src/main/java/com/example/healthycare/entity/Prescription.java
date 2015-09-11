@@ -18,8 +18,10 @@ public class Prescription {
 	@Id
 	private String id;
 	
+	@DBRef
 	private Doctor doctor;
 	
+	@DBRef
 	private Patient patient;
 	
 	private String description;
