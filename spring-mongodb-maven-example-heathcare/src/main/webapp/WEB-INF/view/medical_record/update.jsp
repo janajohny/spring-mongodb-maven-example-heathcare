@@ -11,7 +11,7 @@
 	</head> 
 	<body>
 	<h2>Medical History</h2>
-	<table border="1">
+	<table style="width:100%" border="1">
 	<tr>
           <td>Question </td>
           <td>Answer</td>
@@ -21,7 +21,14 @@
             <tr>
                 <td>${qa.question.question}</td>
                 <td>${qa.answer.answer}</td>
-                <td><a href="${pageContext.servletContext.contextPath}/answer/update/${patientId}/${qa.answer.id}">Answer</a></td>
+                <td>
+                    <c:if test="${qa.answer.id != null }">
+                        <a href="${pageContext.servletContext.contextPath}/answer/update/${patientId}/${qa.answer.id}">Update Answer</a>
+                    </c:if>
+                    <c:if test="${qa.answer.id == null }">
+                        <a href="${pageContext.servletContext.contextPath}/answer/create/${patientId}/${qa.question.id}">Answer</a>
+                    </c:if>
+                </td>
             </tr>
     </c:forEach>
 	</table>

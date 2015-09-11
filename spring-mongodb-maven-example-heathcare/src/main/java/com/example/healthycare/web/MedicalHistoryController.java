@@ -47,17 +47,15 @@ public class MedicalHistoryController {
 			if(patient.getMedicalHistory()!=null){
 				List<Question>questions = questionService.findAll();
 				List<Answer>answers = patient.getMedicalHistory().getAnswers();
-				Answer myAnswer = new Answer();
 				for (Iterator iterator = questions.iterator(); iterator.hasNext();) {
 					Question question = (Question) iterator.next();
+					UpdateHistoryDTO updateHistoryDTO = new UpdateHistoryDTO();
+					updateHistoryDTO.setQuestion(question);
+					questionAnswerMap.add(updateHistoryDTO);
 					for (Iterator iterator2 = answers.iterator(); iterator2.hasNext();) {
 						Answer answer = (Answer) iterator2.next();
 						if(answer.getQuestion().getId().equals(question.getId())){
-							myAnswer = answer;
-							UpdateHistoryDTO updateHistoryDTO = new UpdateHistoryDTO();
 							updateHistoryDTO.setAnswer(answer);
-							updateHistoryDTO.setQuestion(question);
-							questionAnswerMap.add(updateHistoryDTO);
 						}
 					}
 				}

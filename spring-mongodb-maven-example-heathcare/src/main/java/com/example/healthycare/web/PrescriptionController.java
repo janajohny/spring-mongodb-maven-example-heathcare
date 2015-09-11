@@ -71,6 +71,7 @@ public class PrescriptionController {
 	
 	@RequestMapping(value="/edit/", method = RequestMethod.POST)
 	public String editPrescription(@ModelAttribute(value = "prescription")Prescription prescription, ModelMap mm){
+		
 		prescriptionService.update(prescription);
 		return "redirect:/prescription";
 	}
