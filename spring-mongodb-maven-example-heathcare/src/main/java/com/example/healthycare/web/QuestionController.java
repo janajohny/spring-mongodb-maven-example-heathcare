@@ -1,5 +1,8 @@
 package com.example.healthycare.web;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -8,8 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.healthycare.entity.Answer;
 import com.example.healthycare.entity.Drug;
+import com.example.healthycare.entity.Patient;
 import com.example.healthycare.entity.Question;
+import com.example.healthycare.service.PatientService;
 import com.example.healthycare.service.QuestionService;
 
 /**
@@ -23,6 +29,9 @@ public class QuestionController {
 
 	@Autowired
 	private QuestionService questionService;
+	
+	@Autowired
+	PatientService patientService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String list(ModelMap mm){
@@ -39,6 +48,14 @@ public class QuestionController {
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST)
 	public String addDrug(@ModelAttribute(value = "question")Question question){
+		List<Patient>patients = patientService.findAll();
+		for (Iterator iterator = patients.iterator(); iterator.hasNext();) {
+			Patient patient = (Patient) iterator.next();
+			Answer answer = new Answer();
+			answer.setQuestion(question);
+			patient.getMedicalHistory().getAnswers().add(answer);
+			patientService.updateMedicalHistory(patient);
+		}
 		questionService.insert(question);
 		return "redirect:/question";
 	}
