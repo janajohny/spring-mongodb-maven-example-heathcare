@@ -4,7 +4,7 @@
     
 <html>
 	<head>
-	<a href="${pageContext.servletContext.contextPath}"><img src="${pageContext.servletContext.contextPath}/resources/images/image1.jpg"></img>
+	<a href="${pageContext.servletContext.contextPath}"><img src="${pageContext.servletContext.contextPath}/resources/images/image1.jpg" width="100%"></img>
 	</a>
 	</head> 
 	<body>

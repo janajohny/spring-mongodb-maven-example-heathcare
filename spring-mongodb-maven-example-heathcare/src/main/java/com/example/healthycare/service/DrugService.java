@@ -2,15 +2,21 @@ package com.example.healthycare.service;
 
 import java.util.List;
 
-import com.example.healthycare.entity.Drug;
+import org.bson.types.ObjectId;
 
+import com.example.healthycare.entity.Drug;
+/**
+ * 
+ * @author vominhtung
+ *
+ */
 public interface DrugService {
 	
 	List<Drug> findAll();
 	
 	void insert(Drug drug);
 	
-	Drug findById(String id);
+	Drug findById(ObjectId id);
 	
 	void update(Drug drug);
 	

@@ -21,8 +21,8 @@ public class QuestionDaoImpl extends BaseDaoImpl<Question> implements QuestionDa
 	 * @see com.example.healthycare.dao.QuestionDao#findById(java.lang.String)
 	 */
 	@Override
-	public Question findById(String id){
-		Query searchQuestionQuery = new Query(Criteria.where("id").is(new ObjectId(id)));
+	public Question findById(ObjectId id){
+		Query searchQuestionQuery = new Query(Criteria.where("id").is(id));
 		MongoTemplate mongoTemplate = this.getMongoTemplate();
 		return mongoTemplate.findOne(searchQuestionQuery, Question.class);
 	}
@@ -37,7 +37,7 @@ public class QuestionDaoImpl extends BaseDaoImpl<Question> implements QuestionDa
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(ObjectId id) {
 		MongoTemplate mongoTemplate = this.getMongoTemplate();
 		Query query = new Query(Criteria.where("id").is(id));
 		mongoTemplate.remove(query, Question.class);

@@ -5,7 +5,7 @@
     
 <html>
 	<head>
-	<a href="${pageContext.servletContext.contextPath}"><img src="${pageContext.servletContext.contextPath}/resources/images/medical_record.png"></img>
+	<a href="${pageContext.servletContext.contextPath}"><img src="${pageContext.servletContext.contextPath}/resources/images/medical_record.png" width="100%"></img>
 	</a>
 	<h1>Answer</h1>
 	</head>

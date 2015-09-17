@@ -4,7 +4,7 @@
     
 <html>
 	<head>
-	<a href="${pageContext.servletContext.contextPath}"><img src="${pageContext.servletContext.contextPath}/resources/images/medical_record.png"></img>
+	<a href="${pageContext.servletContext.contextPath}"><img src="${pageContext.servletContext.contextPath}/resources/images/medical_record.png" width="100%"></img>
 	</a>
 	</head> 
 	<body>
@@ -20,7 +20,7 @@
 		</tr>
 		<c:forEach items="${prescriptions}" var="prescription">
 			<tr>
-				<td><a href="${pageContext.servletContext.contextPath}/doctor/detail/">${prescription.id}</a></td>
+				<td><a href="${pageContext.servletContext.contextPath}/prescription/detail/${prescription.id}">${prescription.id}</a></td>
 				<td>${prescription.patient.patientId}</td>
 				<td>${prescription.doctor.employeeId}</td>
 				<td>

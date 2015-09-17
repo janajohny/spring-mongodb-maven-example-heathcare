@@ -2,11 +2,11 @@ package com.example.healthycare.service.impl;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.healthycare.dao.QuestionDao;
-import com.example.healthycare.dao.QuestionDaoImpl;
 import com.example.healthycare.entity.Question;
 import com.example.healthycare.service.QuestionService;
 
@@ -22,7 +22,7 @@ public class QuestionServiceImpl implements QuestionService{
 	}
 
 	@Override
-	public Question findById(String id) {
+	public Question findById(ObjectId id) {
 		return questionRepository.findById(id);
 	}
 
@@ -37,7 +37,7 @@ public class QuestionServiceImpl implements QuestionService{
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(ObjectId id) {
 		questionRepository.delete(id);
 	}
 	

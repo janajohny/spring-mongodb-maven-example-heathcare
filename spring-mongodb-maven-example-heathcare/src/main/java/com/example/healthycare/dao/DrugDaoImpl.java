@@ -15,7 +15,7 @@ import com.example.healthycare.entity.Patient;
 public class DrugDaoImpl extends BaseDaoImpl<Drug> implements DrugDao{
 
 	@Override
-	public Drug findById(String id) {
+	public Drug findById(ObjectId id) {
 		Query searchdrugQuery = new Query(Criteria.where("id").is(id));
 		return this.getMongoTemplate().findOne(searchdrugQuery, Drug.class);
 	}

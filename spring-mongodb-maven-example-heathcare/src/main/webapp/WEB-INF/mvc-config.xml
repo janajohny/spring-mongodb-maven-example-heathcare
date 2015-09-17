@@ -13,6 +13,7 @@
             <bean class="com.example.healthycare.converter.StringToDateConverter"/>
             <bean class="com.example.healthycare.converter.DateToStringConverter"/>
             <bean class="com.example.healthycare.converter.StringToObjectIdConverter"/>
+            <bean class="com.example.healthycare.converter.ObjectIdToStringConverter"/>
         </set>
     </property>
     </bean>

@@ -3,6 +3,7 @@ package com.example.healthycare.web;
 import java.util.Iterator;
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -61,7 +62,7 @@ public class QuestionController {
 	}
 	
 	@RequestMapping(value="/edit/{id}", method = RequestMethod.GET)
-	public String editQuestionForm(@PathVariable(value = "id")String id, ModelMap mm){
+	public String editQuestionForm(@PathVariable(value = "id")ObjectId id, ModelMap mm){
 		Question question = questionService.findById(id);
 		mm.addAttribute("question", question);
 		return "question/edit";
@@ -74,8 +75,23 @@ public class QuestionController {
 	}
 	
 	@RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
-	public String editDrugForm(@PathVariable(value = "id")String id, ModelMap mm){
-		questionService.delete(id);
+	public String editDrugForm(@PathVariable(value = "id")ObjectId id, ModelMap mm){
+		Question question = questionService.findById(id);
+		if(question!=null){
+			List<Patient>patients = patientService.findAll();
+			for (Iterator iterator = patients.iterator(); iterator.hasNext();) {
+				Patient patient = (Patient) iterator.next();
+				List<Answer>answers = patient.getMedicalHistory().getAnswers();
+				for (Iterator iterator2 = answers.iterator(); iterator2.hasNext();) {
+					Answer answer = (Answer) iterator2.next();
+					if(answer.getQuestion().getId().equals(id)){
+						iterator2.remove();
+					}
+				}
+				patientService.updateMedicalHistory(patient);
+			}
+			questionService.delete(id);
+		}
 		return "redirect:/question";
 	}
 }

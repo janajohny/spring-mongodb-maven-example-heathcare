@@ -4,7 +4,7 @@
 <%@ page isELIgnored="false" %>
 <html>
 	<head>
-	<a href="${pageContext.servletContext.contextPath}"><img src="${pageContext.servletContext.contextPath}/resources/images/medical_record.png"></img>
+	<a href="${pageContext.servletContext.contextPath}"><img src="${pageContext.servletContext.contextPath}/resources/images/doctor-panel-8546.png" width="100%"></img>
 	</a>
 	</head> 
 	<body>

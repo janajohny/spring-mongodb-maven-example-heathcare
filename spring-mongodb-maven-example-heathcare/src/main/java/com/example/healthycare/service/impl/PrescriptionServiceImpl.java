@@ -41,7 +41,6 @@ public class PrescriptionServiceImpl implements PrescriptionService{
 
 	public void update(Prescription prescription) {
 		prescriptionDao.update(prescription);
-		
 	}
 
 }

@@ -4,7 +4,7 @@
     
 <html>
 	<head>
-	<a href="${pageContext.servletContext.contextPath}"><img src="${pageContext.servletContext.contextPath}/resources/images/drug_panel_672.png"></img></a>
+	<a href="${pageContext.servletContext.contextPath}"><img src="${pageContext.servletContext.contextPath}/resources/images/drug_panel_672.png" width="100%"></img></a>
 	</head> 
 	<body>
 	<table>

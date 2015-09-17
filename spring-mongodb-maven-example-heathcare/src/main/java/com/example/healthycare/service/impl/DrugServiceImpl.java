@@ -2,6 +2,7 @@ package com.example.healthycare.service.impl;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ public class DrugServiceImpl implements DrugService{
 		drugDao.insert(drug);
 	}
 
-	public Drug findById(String id) {
+	public Drug findById(ObjectId id) {
 		return drugDao.findById(id);
 	}
 

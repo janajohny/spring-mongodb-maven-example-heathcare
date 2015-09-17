@@ -2,12 +2,14 @@ package com.example.healthycare.service;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
+
 import com.example.healthycare.dao.BaseDao;
 import com.example.healthycare.entity.Question;
 
 public interface QuestionService{
 
-	Question findById(String id);
+	Question findById(ObjectId id);
 	
 	List<Question>findAll();
 	
@@ -15,5 +17,5 @@ public interface QuestionService{
 	
 	void update(Question question);
 	
-	void delete(String id);
+	void delete(ObjectId id);
 }

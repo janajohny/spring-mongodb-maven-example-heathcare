@@ -2,6 +2,7 @@ package com.example.healthycare.web;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -46,7 +47,7 @@ public class DrugController {
 	}
 	
 	@RequestMapping(value="/edit/{id}", method = RequestMethod.GET)
-	public String editDrugForm(@PathVariable(value = "id")String id, ModelMap mm){
+	public String editDrugForm(@PathVariable(value = "id")ObjectId id, ModelMap mm){
 		Drug drug = drugService.findById(id);
 		mm.addAttribute("drug", drug);
 		return "drug/edit";

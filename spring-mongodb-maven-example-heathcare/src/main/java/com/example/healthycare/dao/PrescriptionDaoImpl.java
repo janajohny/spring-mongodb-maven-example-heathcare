@@ -52,6 +52,7 @@ public class PrescriptionDaoImpl  extends BaseDaoImpl<Prescription> implements P
 		update.set("doctor", prescription.getDoctor());
 		update.set("patient", prescription.getPatient());
 		update.set("description", prescription.getDescription());
+		update.set("drugs", prescription.getDrugs());
 		mongoOperation.updateFirst(query, update, Prescription.class);
 	}
 

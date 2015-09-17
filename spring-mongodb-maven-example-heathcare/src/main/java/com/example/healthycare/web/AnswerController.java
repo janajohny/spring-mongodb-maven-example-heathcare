@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -68,7 +69,7 @@ public class AnswerController {
 	}
 	
 	@RequestMapping(value="/create/{patientId}/{questionId}", method = RequestMethod.GET)
-	public String addAnswerForm(@PathVariable(value="patientId") String patientId, @PathVariable(value="questionId")String questionId, ModelMap mm){
+	public String addAnswerForm(@PathVariable(value="patientId") String patientId, @PathVariable(value="questionId")ObjectId questionId, ModelMap mm){
 		Answer answer = new Answer();
 		Question question = questionService.findById(questionId);
 		answer.setQuestion(question);
